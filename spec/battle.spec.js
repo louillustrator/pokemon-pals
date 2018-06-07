@@ -105,4 +105,31 @@ describe("Battle", () => {
     battle1.fight();
     expect(battle1.poke1TempHp).to.equal(-5);
   });
+  it("can swap who attacks and defends based on whose turn it is", () => {
+    const tim = new Trainer("Tim");
+    const lou = new Trainer("Lou");
+    const squirtle = new Pokemon(
+      "Squirtle",
+      "water",
+      100,
+      20,
+      "Squirtle",
+      "bubble"
+    );
+    const charmander = new Pokemon(
+      "Charmander",
+      "fire",
+      100,
+      20,
+      "Char",
+      "ember"
+    );
+    tim.catch(squirtle);
+    lou.catch(charmander);
+    let battle1 = new Battle(tim, lou);
+    battle1.fight();
+    battle1.fight();
+    expect(battle1.poke1TempHp).to.equal(80);
+    expect(battle1.poke2TempHp).to.equal(80);
+  });
 });

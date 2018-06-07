@@ -5,6 +5,7 @@
   "main": "index.js",
   "dependencies": {
     "hai": "^0.0.3",
+    "inquirer": "^6.0.0",
     "sinon": "^5.1.0"
   },
   "devDependencies": {
