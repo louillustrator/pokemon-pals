@@ -1,0 +1,19 @@
+{
+  "name": "pokemon-pals",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "hai": "^0.0.3",
+    "sinon": "^5.1.0"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "mocha": "^5.2.0"
+  },
+  "scripts": {
+    "test": "mocha spec"
+  },
+  "author": "",
+  "license": "ISC"
+}
