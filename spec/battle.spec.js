@@ -1,9 +1,10 @@
 const { Pokemon } = require("../pokemon.js");
 const { Trainer } = require("../trainer.js");
 const { Battle } = require("../battle.js");
+const { player1choice, player2choice } = require ("../pkmnlist.js");
 const { expect } = require("chai");
 
-describe.only("Battle", () => {
+describe("Battle", () => {
   it("If battle can obtain 1 pokemon from each trainer", () => {
     const tim = new Trainer("Tim");
     const lou = new Trainer("Lou");
@@ -109,3 +110,5 @@ describe.only("Battle", () => {
     expect(battle1.poke2TempHp).to.equal(80);
   });
 });
+
+console.log(player1choice[0], player2choice[0]);
