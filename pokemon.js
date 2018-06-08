@@ -1,18 +1,18 @@
-function Pokemon (name, type, hp, atk, sound, moves) {
+class Pokemon {
+  constructor(name, type, sound, moves) {
     this.name = name;
     this.type = type;
-    this.hp = hp;
-    this.atk = atk;
+    this.hp = Math.floor(Math.random() * (110 - 90) + 90);
+    this.atk = Math.floor(Math.random() * (20 - 16) + 16);
     this.sound = sound;
     this.moves = moves;
-}
-
-Pokemon.prototype.talk = function() {
+  }
+  talk() {
     return this.sound;
-}
-
-Pokemon.prototype.useYourMoves = function() {
+  }
+  useYourMoves() {
     return this.moves;
+  }
 }
 
-module.exports = {Pokemon};
+module.exports = { Pokemon };

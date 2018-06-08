@@ -3,26 +3,12 @@ const { Trainer } = require("../trainer.js");
 const { Battle } = require("../battle.js");
 const { expect } = require("chai");
 
-describe("Battle", () => {
+describe.only("Battle", () => {
   it("If battle can obtain 1 pokemon from each trainer", () => {
     const tim = new Trainer("Tim");
     const lou = new Trainer("Lou");
-    const squirtle = new Pokemon(
-      "Squirtle",
-      "water",
-      100,
-      20,
-      "Squirtle",
-      "bubble"
-    );
-    const charmander = new Pokemon(
-      "Charmander",
-      "fire",
-      100,
-      20,
-      "Char",
-      "ember"
-    );
+    const squirtle = new Pokemon("Squirtle", "water", "Squirtle", "bubble");
+    const charmander = new Pokemon("Charmander", "fire", "Char", "ember");
     tim.catch(squirtle);
     lou.catch(charmander);
     let battle1 = new Battle(tim, lou);
@@ -35,21 +21,21 @@ describe("Battle", () => {
     const squirtle = new Pokemon(
       "Squirtle",
       "water",
-      100,
-      20,
+
       "Squirtle",
       "bubble"
     );
     const charmander = new Pokemon(
       "Charmander",
       "fire",
-      100,
-      20,
+
       "Char",
       "ember"
     );
     tim.catch(squirtle);
     lou.catch(charmander);
+    squirtle.hp = 100;
+    charmander.hp = 100;
     let battle1 = new Battle(tim, lou);
     expect(battle1.poke1TempHp).to.equal(100);
     expect(battle1.poke2TempHp).to.equal(100);
@@ -57,24 +43,12 @@ describe("Battle", () => {
   it("Test that one pokemon can attack another,and cause it to faint", () => {
     const tim = new Trainer("Tim");
     const lou = new Trainer("Lou");
-    const squirtle = new Pokemon(
-      "Squirtle",
-      "water",
-      100,
-      20,
-      "Squirtle",
-      "bubble"
-    );
-    const charmander = new Pokemon(
-      "Charmander",
-      "fire",
-      15,
-      20,
-      "Char",
-      "ember"
-    );
+    const squirtle = new Pokemon("Squirtle", "water", "Squirtle", "bubble");
+    const charmander = new Pokemon("Charmander", "fire", "Char", "ember");
     tim.catch(squirtle);
     lou.catch(charmander);
+    squirtle.atk = 25;
+    charmander.hp = 20;
     let battle1 = new Battle(tim, lou);
     battle1.fight();
     expect(battle1.poke2TempHp).to.equal(-5);
@@ -85,21 +59,21 @@ describe("Battle", () => {
     const squirtle = new Pokemon(
       "Squirtle",
       "water",
-      15,
-      20,
+
       "Squirtle",
       "bubble"
     );
     const charmander = new Pokemon(
       "Charmander",
       "fire",
-      150,
-      20,
+
       "Char",
       "ember"
     );
     tim.catch(squirtle);
     lou.catch(charmander);
+    squirtle.hp = 20;
+    charmander.atk = 25;
     let battle1 = new Battle(tim, lou);
     battle1.whoseturn = 2;
     battle1.fight();
@@ -111,21 +85,23 @@ describe("Battle", () => {
     const squirtle = new Pokemon(
       "Squirtle",
       "water",
-      100,
-      20,
+
       "Squirtle",
       "bubble"
     );
     const charmander = new Pokemon(
       "Charmander",
       "fire",
-      100,
-      20,
+
       "Char",
       "ember"
     );
     tim.catch(squirtle);
     lou.catch(charmander);
+    squirtle.hp = 100;
+    charmander.hp = 100;
+    squirtle.atk = 20;
+    charmander.atk = 20;
     let battle1 = new Battle(tim, lou);
     battle1.fight();
     battle1.fight();
