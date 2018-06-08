@@ -1,7 +1,7 @@
 const { Pokemon } = require("../pokemon.js");
 const { Trainer } = require("../trainer.js");
 const { Battle } = require("../battle.js");
-const { player1choice, player2choice } = require ("../pkmnlist.js");
+const { player1choice, player2choice } = require("../pkmnlist.js");
 const { expect } = require("chai");
 
 describe("Battle", () => {
@@ -51,7 +51,7 @@ describe("Battle", () => {
     squirtle.atk = 25;
     charmander.hp = 20;
     let battle1 = new Battle(tim, lou);
-    battle1.fight();
+    battle1.fight1();
     expect(battle1.poke2TempHp).to.equal(-5);
   });
   it("Test that the 2nd pokemon can attack the other,and cause it to faint", () => {
@@ -77,7 +77,7 @@ describe("Battle", () => {
     charmander.atk = 25;
     let battle1 = new Battle(tim, lou);
     battle1.whoseturn = 2;
-    battle1.fight();
+    battle1.fight2();
     expect(battle1.poke1TempHp).to.equal(-5);
   });
   it("can swap who attacks and defends based on whose turn it is", () => {
@@ -104,8 +104,8 @@ describe("Battle", () => {
     squirtle.atk = 20;
     charmander.atk = 20;
     let battle1 = new Battle(tim, lou);
-    battle1.fight();
-    battle1.fight();
+    battle1.fight1();
+    battle1.fight2();
     expect(battle1.poke1TempHp).to.equal(80);
     expect(battle1.poke2TempHp).to.equal(80);
   });
