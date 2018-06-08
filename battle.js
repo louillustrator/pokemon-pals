@@ -12,18 +12,18 @@ class Battle {
     console.log(' ');
     console.log(`${this.pokemon1.name} uses ${this.pokemon1.moves}.`);
     if (this.pokemon2.weakness.includes(this.pokemon1.type)) {
-      this.poke2TempHp = this.poke2TempHp - (this.pokemon1.atk * 1.5);
+      this.poke2TempHp = this.poke2TempHp - (Math.floor(this.pokemon1.atk * 1.5));
     console.log(
       `${this.pokemon2.name} takes ${
-        this.pokemon1.atk*1.5
+        Math.floor(this.pokemon1.atk*1.5)
       } points of damage!`);
       console.log("It's super effective!");
     }
     else if (this.pokemon2.resist.includes(this.pokemon1.type)) {
-      this.poke2TempHp = this.poke2TempHp - (this.pokemon1.atk * 0.5);
+      this.poke2TempHp = this.poke2TempHp - (Math.floor(this.pokemon1.atk * 0.5));
     console.log(
       `${this.pokemon2.name} takes ${
-        this.pokemon1.atk*0.5
+        Math.floor(this.pokemon1.atk*0.5)
       } points of damage!`);
       console.log("It's not very effective...")
     }
@@ -57,12 +57,35 @@ class Battle {
   fight2() {
     console.log(' ');
     console.log(`${this.pokemon2.name} uses ${this.pokemon2.moves}.`);
+    if (this.pokemon1.weakness.includes(this.pokemon2.type)) {
+      this.poke1TempHp = this.poke1TempHp - (Math.floor(this.pokemon2.atk * 1.5));
+    console.log(
+      `${this.pokemon1.name} takes ${
+        Math.floor(this.pokemon2.atk*1.5)
+      } points of damage!`);
+      console.log("It's super effective!");
+    }
+    else if (this.pokemon1.resist.includes(this.pokemon2.type)) {
+      this.poke1TempHp = this.poke1TempHp - (Math.floor(this.pokemon2.atk * 0.5));
+    console.log(
+      `${this.pokemon1.name} takes ${
+        Math.floor(this.pokemon2.atk*0.5)
+      } points of damage!`);
+      console.log("It's not very effective...")
+    }
+    else if (this.pokemon1.immune.includes(this.pokemon2.type)) {
+    console.log(
+      `It doesn't affect ${this.pokemon1.name}...`
+    );
+    }
+    else {
     this.poke1TempHp = this.poke1TempHp - this.pokemon2.atk;
     console.log(
       `${this.pokemon1.name} takes ${
         this.pokemon2.atk
       } points of damage!`
     );
+  }
 
     if (this.poke1TempHp < 1) {
       console.log(`${this.pokemon1.name} has fainted!`);
