@@ -3,13 +3,14 @@ const { Trainer } = require("../trainer.js");
 const { Battle } = require("../battle.js");
 const { player1choice, player2choice } = require("../pkmnlist.js");
 const inquirer = require("inquirer");
-//adding a random note
+
 //getting a name, and checking its a string, and pokemon being picked for both players here
 let makeTrainer = [
   {
     type: "input",
     name: "trainer1",
-    message: "Trainer 1, please enter your name.",
+    message:
+      "Hey, you there! This is my alley, Who the hell do you think you are?",
     validate: function(value) {
       let pass = value.match(/^[A-Z, a-z]{1,8}$/g);
       if (pass) return true;
@@ -19,7 +20,7 @@ let makeTrainer = [
   {
     type: "list",
     name: "pkmn1",
-    message: "Trainer 1, please choose your Pokemon.",
+    message: "Thats a stupid name, who is your little sidekick?",
     choices: [
       "Bulbasaur",
       "Charmander",
@@ -43,7 +44,8 @@ let makeTrainer = [
   {
     type: "input",
     name: "trainer2",
-    message: "Trainer 2, please enter your name.",
+    message:
+      "Right, well I'm gonna make my sidekick fight him. My superior name is...",
     validate: function(value) {
       let pass = value.match(/^[A-Z, a-z]{1,8}$/g);
       if (pass) return true;
@@ -53,7 +55,7 @@ let makeTrainer = [
   {
     type: "list",
     name: "pkmn2",
-    message: "Trainer 2, please choose your Pokemon.",
+    message: "Gotta pick my best sidekick now",
     choices: [
       "Bulbasaur",
       "Charmander",
@@ -190,13 +192,15 @@ function start() {
     //battle with 2 trainers, you can pick fight or forfeit
     function battle() {
       let pokefight = new Battle(train1, train2);
-      console.log("Player 1 do a thing");
+      console.log("***********************");
+      console.log("********Les go*********");
+      console.log("***********************");
       let battle1 = [
         {
           type: "list",
           name: "fight1",
-          message: `${train1.name}, pick an option.`,
-          choices: ["Fight", "Forfeit"]
+          message: `${train1.name}, what do you want to do?`,
+          choices: ["Fight", "Forfeit", "Press the red button"]
         }
       ];
       let battle2 = [
@@ -204,7 +208,7 @@ function start() {
           type: "list",
           name: "fight2",
           message: `${train2.name}, pick an option.`,
-          choices: ["Fight", "Forfeit"]
+          choices: ["Fight", "Forfeit", "Press the red button"]
         }
       ];
       trainer1Turn();
@@ -216,9 +220,17 @@ function start() {
             return;
           }
           //else they fight, and then asses if hp is lower than 1
-          pokefight.fight1();
-          if (pokefight.poke2TempHp < 1) return;
-          trainer2Turn();
+          if (answers.fight1 === "Fight") {
+            pokefight.fight1();
+            if (pokefight.poke2TempHp < 1) return;
+            trainer2Turn();
+          }
+          if (answers.fight1 === "Press the red button") {
+            console.log(
+              "!!BANG!! Your Pokemon exploded, killing you and everything within a 1 mile radius. That was pretty stupid"
+            );
+            return;
+          }
         });
       }
       function trainer2Turn() {
@@ -226,6 +238,11 @@ function start() {
         inquirer.prompt(battle2).then(answers => {
           if (answers.fight2 === "Forfeit") {
             console.log(`${train1.name} wins!`);
+          }
+          if (answers.fight2 === "Press the red button") {
+            console.log(
+              "!!BANG!! Your Pokemon exploded, killing you and everything within a 1 mile radius. That was pretty stupid"
+            );
             return;
           }
           pokefight.fight2();
@@ -239,6 +256,9 @@ function start() {
 }
 
 //now we are outside of our declarations, this is the start of the game
-console.log("PREPARE TO BATTLE!!!");
+console.log("*********STREET POKEMON**********");
+console.log(
+  "You are walking down a dark alley, its dark, a stranger lurks on the corner and becomes aggrevated as you approach..."
+);
 //call the game to begin!
 start();
