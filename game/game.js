@@ -3,7 +3,7 @@ const { Trainer } = require("../trainer.js");
 const { Battle } = require("../battle.js");
 const { player1choice, player2choice } = require("../pkmnlist.js");
 const inquirer = require("inquirer");
-
+//adding a random note
 //getting a name, and checking its a string, and pokemon being picked for both players here
 let makeTrainer = [
   {
@@ -100,38 +100,38 @@ function start() {
       train1.catch(player1choice[5]);
     }
     if (answers.pkmn1 === "Jynx") {
-        train1.catch(player1choice[6]);
-      }
-      if (answers.pkmn1 === "Machop") {
-        train1.catch(player1choice[7]);
-      }
-      if (answers.pkmn1 === "Grimer") {
-        train1.catch(player1choice[8]);
-      }
-      if (answers.pkmn1 === "Pidgey") {
-        train1.catch(player1choice[9]);
-      }
-      if (answers.pkmn1 === "Drowzee") {
-        train1.catch(player1choice[10]);
-      }
-      if (answers.pkmn1 === "Venonat") {
-        train1.catch(player1choice[11]);
-      }
-      if (answers.pkmn1 === "Geodude") {
-        train1.catch(player1choice[12]);
-      }
-      if (answers.pkmn1 === "Gastly") {
-        train1.catch(player1choice[13]);
-      }
-      if (answers.pkmn1 === "Dratini") {
-        train1.catch(player1choice[14]);
-      }
-      if (answers.pkmn1 === "Magnemite") {
-        train1.catch(player1choice[15]);
-      }
-      if (answers.pkmn1 === "Jigglypuff") {
-        train1.catch(player1choice[16]);
-      }
+      train1.catch(player1choice[6]);
+    }
+    if (answers.pkmn1 === "Machop") {
+      train1.catch(player1choice[7]);
+    }
+    if (answers.pkmn1 === "Grimer") {
+      train1.catch(player1choice[8]);
+    }
+    if (answers.pkmn1 === "Pidgey") {
+      train1.catch(player1choice[9]);
+    }
+    if (answers.pkmn1 === "Drowzee") {
+      train1.catch(player1choice[10]);
+    }
+    if (answers.pkmn1 === "Venonat") {
+      train1.catch(player1choice[11]);
+    }
+    if (answers.pkmn1 === "Geodude") {
+      train1.catch(player1choice[12]);
+    }
+    if (answers.pkmn1 === "Gastly") {
+      train1.catch(player1choice[13]);
+    }
+    if (answers.pkmn1 === "Dratini") {
+      train1.catch(player1choice[14]);
+    }
+    if (answers.pkmn1 === "Magnemite") {
+      train1.catch(player1choice[15]);
+    }
+    if (answers.pkmn1 === "Jigglypuff") {
+      train1.catch(player1choice[16]);
+    }
     if (answers.pkmn2 === "Bulbasaur") {
       train2.catch(player2choice[0]);
     }
@@ -151,38 +151,38 @@ function start() {
       train2.catch(player2choice[5]);
     }
     if (answers.pkmn2 === "Jynx") {
-        train2.catch(player2choice[6]);
-      }
-      if (answers.pkmn2 === "Machop") {
-        train2.catch(player2choice[7]);
-      }
-      if (answers.pkmn2 === "Grimer") {
-        train2.catch(player2choice[8]);
-      }
-      if (answers.pkmn2 === "Pidgey") {
-        train2.catch(player2choice[9]);
-      }
-      if (answers.pkmn2 === "Drowzee") {
-        train2.catch(player2choice[10]);
-      }
-      if (answers.pkmn2 === "Venonat") {
-        train2.catch(player2choice[11]);
-      }
-      if (answers.pkmn2 === "Geodude") {
-        train2.catch(player2choice[12]);
-      }
-      if (answers.pkmn2 === "Gastly") {
-        train2.catch(player2choice[13]);
-      }
-      if (answers.pkmn2 === "Dratini") {
-        train2.catch(player2choice[14]);
-      }
-      if (answers.pkmn2 === "Magnemite") {
-        train2.catch(player2choice[15]);
-      }
-      if (answers.pkmn2 === "Jigglypuff") {
-        train2.catch(player2choice[16]);
-      }
+      train2.catch(player2choice[6]);
+    }
+    if (answers.pkmn2 === "Machop") {
+      train2.catch(player2choice[7]);
+    }
+    if (answers.pkmn2 === "Grimer") {
+      train2.catch(player2choice[8]);
+    }
+    if (answers.pkmn2 === "Pidgey") {
+      train2.catch(player2choice[9]);
+    }
+    if (answers.pkmn2 === "Drowzee") {
+      train2.catch(player2choice[10]);
+    }
+    if (answers.pkmn2 === "Venonat") {
+      train2.catch(player2choice[11]);
+    }
+    if (answers.pkmn2 === "Geodude") {
+      train2.catch(player2choice[12]);
+    }
+    if (answers.pkmn2 === "Gastly") {
+      train2.catch(player2choice[13]);
+    }
+    if (answers.pkmn2 === "Dratini") {
+      train2.catch(player2choice[14]);
+    }
+    if (answers.pkmn2 === "Magnemite") {
+      train2.catch(player2choice[15]);
+    }
+    if (answers.pkmn2 === "Jigglypuff") {
+      train2.catch(player2choice[16]);
+    }
     if (answers.pkmn2 !== "") {
       battle();
       //call the battle
